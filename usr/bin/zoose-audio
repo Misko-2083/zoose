@@ -75,38 +75,38 @@ class Startup:
            if pathinfo==None: return False
            pathnr=pathinfo[0]  
            comm=" %s" % str(sys.argv[1])
-           exec=self.liststore[pathnr][2]
+           execc="%s" % self.liststore[pathnr][2]
            command=self.liststore[pathnr][2] + comm
            # case for audacious, if not found displays dialog
-           if (exec=='audacious' or exec=='audacious -e'):
+           if (execc=='audacious' or execc=='audacious -e'):
               if not os.path.exists('/usr/bin/audacious'):
                  dialog = gtk.MessageDialog(self.window, gtk.DIALOG_MODAL,gtk.MESSAGE_INFO,gtk.BUTTONS_OK, "apt-get install audacious")
                  result = dialog.run()
                  dialog.destroy()
                  command=''
            # case for clementine, if not found displays dialog
-           elif (exec=='clementine -a' or exec=='clementine -l'):
+           elif (execc=='clementine -a' or execc=='clementine -l'):
               if not os.path.exists('/usr/bin/clementine'):
                  dialog = gtk.MessageDialog(self.window, gtk.DIALOG_MODAL,gtk.MESSAGE_INFO,gtk.BUTTONS_OK, "apt-get install clementine")
                  result = dialog.run()
                  dialog.destroy()
                  command=''
            # case for soundconverter, if not found displays dialog
-           elif exec=='/usr/bin/soundconverter':
+           elif execc=='/usr/bin/soundconverter':
               if not os.path.exists('/usr/bin/soundconverter'):
                  dialog = gtk.MessageDialog(self.window, gtk.DIALOG_MODAL,gtk.MESSAGE_INFO,gtk.BUTTONS_OK, "apt-get install soundconverter")
                  result = dialog.run()
                  dialog.destroy()
                  command=''
            # case for smplayer, if not found displays dialog
-           elif (exec=='smplayer' or exec=='smplayer -add-to-playlist'):
+           elif (execc=='smplayer' or execc=='smplayer -add-to-playlist'):
               if not os.path.exists('/usr/bin/smplayer'):
                  dialog = gtk.MessageDialog(self.window, gtk.DIALOG_MODAL,gtk.MESSAGE_INFO,gtk.BUTTONS_OK, "apt-get install smplayer")
                  result = dialog.run()
                  dialog.destroy()
                  command=''
            # case for qmmp, if not found displays dialog
-           elif (exec=='qmmp' or exec=='qmmp -e'):
+           elif (execc=='qmmp' or execc=='qmmp -e'):
               if not os.path.exists('/usr/bin/qmmp'):
                  dialog = gtk.MessageDialog(self.window, gtk.DIALOG_MODAL,gtk.MESSAGE_INFO,gtk.BUTTONS_OK, "apt-get install qmmp")
                  result = dialog.run()
